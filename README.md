@@ -1,6 +1,6 @@
 # TSPTFBS-2.0
 TSPTFBS 2.0 is a webserver based on deep learning models for transcription factor binding site (TFBS) prediction. It can be used to mine the potential core motifs within a given sequence by the trained 389 TFBS prediction models of three species (Zea mays, Arabidopsis, Oryza sativa) and the interpretability algorithm Deeplift. TSPTFBS 2.0 is freely accessible for all users. 
-## Python programs for predicting TFBS for 389 TFs,deeplift and TF-MoDISco
+## Python programs for predicting TFBS for 389 TFs,DeepLIFT and TF-MoDISco
 ## Dependencies
 The program requires:
   * python==3.7.13
@@ -71,6 +71,6 @@ We here provide a test.fa file and employed one of models of Zea mays for an exa
 python modisco_test.py Example/test.fa Zea_mays_models ALF2 
 ```
 ## Citation
-Huang, G., et al. Densely Connected Convolutional Networks. IEEE Computer Society 2016.
-Shrikumar, A., Greenside, P. and Kundaje, A. Learning Important Features Through Propagating Activation Differences. 2017.
-Shrikumar, A., et al. Technical Note on Transcription Factor Motif Discovery from Importance Scores (TF-MoDISco) version 0.5.6.5. In.; 2018. p. arXiv:1811.00416.
+* Huang, G., et al. Densely Connected Convolutional Networks. IEEE Computer Society 2016.
+* Shrikumar, A., Greenside, P. and Kundaje, A. Learning Important Features Through Propagating Activation Differences. 2017.
+* Shrikumar, A., et al. Technical Note on Transcription Factor Motif Discovery from Importance Scores (TF-MoDISco) version 0.5.6.5. In.; 2018. p. arXiv:1811.00416.
