@@ -20,7 +20,7 @@ git clone git@github.com:liulifenyf/TSPTFBS-2.0.git
 ```
 
 ## Tutorial
-### Predicting (389 models were employed to predict the values of inpuy sequences)
+###  Predicting (389 models were employed to predict the values of inpuy sequences)
 ```
 cd TSPTFBS-2.0
 python predict.py <input fasta file>
@@ -30,14 +30,14 @@ We here provide a test.fa file for an example:
 ```
 python Predict.py Example/test.fa
 ```
-## Input File Format
+#### Input File Format
 The input file must contain DNA sequences which have a length of 500bp with a FASTA format.
 A FASTA file of the example is:
 ```
 >4:175156999-175157499
 GAATGTGCGTGCTGTGTTGCAGTCGCGTTAGGGCCAAGTCCTAGCCTTTGTGGTGATTAGATTTAGGGGGTGGTCAAGATTCACATATTTATGTTTCTTAACCCTCTCCTGGACTTGGCGACTCTTTTTTTTACCCCCTCCCGAGACAAGTGCCCGTGCGTTTCTTGTTGAACTCTGAATTTGCTTATTCAACAGAAGTTGATAATGATAATAAAAGAAGAGGCATCCTGTGTAAATCGATGCCTCATTTTCTTACTGCCTGTCAGGCTGTCATGGCATGTCAGCAGCTGGGACGGAGATTTGCATGTAAATGTTGTACAGAATTGCATGATCTATCCTGTGAAGCAGAATCAAAATTCTGCTCGGGTAAGATAATGATAAACAGCATAGATGCTGGCTATATGTGTACGAGTACTTGCTACAAAGTGAACCATGGAGCACTTTCTTTTTGATAATTACCATGGTGCAGGTTGAGATGCGAGAATGTTGTATGCCGAGAC
 ```
-## Output File Format
+#### Output File Format
 The output file will seem like below: the first column represents the names of 389 TFs, the remaining columns (The example has one remaining column because the input file has one enquired DNA sequences) record the probabilities of given DNA sequences to be predicted as a TFBS of one of 389 TFs.
 ```
 TF  4:175156999-175157499	
@@ -70,7 +70,7 @@ We here provide a test.fa file and employed one of models of Zea mays for an exa
 ```
 python modisco_test.py Example/test.fa Zea_mays_models ALF2 
 ```
-## Citation
+### Citation
 * Huang, G., et al. Densely Connected Convolutional Networks. IEEE Computer Society 2016.
 * Shrikumar, A., Greenside, P. and Kundaje, A. Learning Important Features Through Propagating Activation Differences. 2017.
 * Shrikumar, A., et al. Technical Note on Transcription Factor Motif Discovery from Importance Scores (TF-MoDISco) version 0.5.6.5. In.; 2018. p. arXiv:1811.00416.
