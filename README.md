@@ -1,6 +1,6 @@
 # TSPTFBS-2.0
 TSPTFBS 2.0 is a webserver based on deep learning models for transcription factor binding site (TFBS) prediction. It can be used to mine the potential core motifs within a given sequence by the trained 389 TFBS prediction models of three species (Zea mays, Arabidopsis, Oryza sativa) and the interpretability algorithm Deeplift. TSPTFBS 2.0 is freely accessible for all users. 
-## Python programs for predicting TFBS for 389 TFs,DeepLIFT and TF-MoDISco
+## Python programs for predicting TFBS, DeepLIFT and TF-MoDISco
 ## Dependencies
 The program requires:
   * python==3.7.13
