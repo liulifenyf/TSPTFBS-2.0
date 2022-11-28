@@ -73,7 +73,7 @@ def predict_one_sequence(all_models_path,fasta_path,wpath):
     result_df.to_csv(wpath,sep=',')
     return result_df
 def main():
-    all_models_path='./DenseNet_models/Oryza_sativa_models'
+    all_models_path='./DenseNet_models'
     fasta_path=sys.argv[1]
     wpath='./results.csv'
     result_df=predict_one_sequence(all_models_path,fasta_path,wpath)
