@@ -28,7 +28,7 @@ python predict.py <input fasta file>
 After running the program, a file named 'results.csv' will be generated in the current folder which records the prediction results of the models.
 We here provide a test.fa file for an example: 
 ```
-python Predict.py Example/test.fa
+python predict.py Example/test.fa
 ```
 #### Input File Format
 The input file must contain DNA sequences which have a length of 500bp with a FASTA format.
