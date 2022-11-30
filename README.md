@@ -51,7 +51,7 @@ AT3G52440	0.6031477
 cd TSPTFBS-2.0
 python deeplift_test.py <input fasta file> <species> <tf>
 ```
-It should be noted /<species/> that one is chosen from 'Zea_mays_models','Arabidopsis_models' and 'Oryza_sativa_models'.
+It should be noted `<`species`>` that one is chosen from 'Zea_mays_models','Arabidopsis_models' and 'Oryza_sativa_models'.
 It should be noted <tf> that one is chosen from the tf names of selected species.
 After running the program, a dir about deeplift results will be generated in the current folder.
 We here provide a test.fa file and employed one of models of Zea mays for an example: 
