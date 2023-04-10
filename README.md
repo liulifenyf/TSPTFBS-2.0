@@ -1,6 +1,6 @@
 # TSPTFBS-2.0
-TSPTFBS 2.0 is a webserver based on deep learning models for transcription factor binding site (TFBS) prediction. It can be used to mine the potential core motifs within a given sequence by the trained 389 TFBS prediction models of three species (Zea mays, Arabidopsis, Oryza sativa) and the interpretability algorithm Deeplift. TSPTFBS 2.0 is freely accessible for all users. 
-## Python programs for predicting TFBS and performing DeepLIFT and TF-MoDISco.
+TSPTFBS 2.0 is a webserver based on deep learning models for transcription factor binding site (TFBS) prediction. It can be used to mine the potential core motifs within a given sequence by the trained 389 TFBS prediction models of three species (Zea mays, Arabidopsis, Oryza sativa) and the three interpretability algorithms Deeplift，insilico tiling deletion and insilico tilling mutagenesis. TSPTFBS 2.0 is freely accessible for all users. 
+## Python programs for predicting TFBS and performing DeepLIFT, insilico-tilling deletion, insilico-tilling mutagenesis and TF-MoDISco.
 ## Dependencies
 The program requires:
   * python==3.7.13
@@ -20,7 +20,7 @@ git clone git@github.com:liulifenyf/TSPTFBS-2.0.git
 ```
 
 ## Tutorial
-###  Predicting (389 models were employed to predict the values of inpuy sequences)
+###  Predicting (389 models were employed to predict the binding intensity of inpuy sequences)
 ```
 cd TSPTFBS-2.0
 python predict.py <input fasta file>
@@ -46,10 +46,10 @@ AT3G12130	0.0003848466
 AT3G52440	0.6031477	
 ...
 ```
-### DeepLIFT
+### interpretability
 ```
 cd TSPTFBS-2.0
-python deeplift_test.py <input fasta file> <species> <tf>
+python interpretability.py <input fasta file> <species> <tf>
 ```
 It should be noted ```<species>``` that one is chosen from 'Zea_mays_models','Arabidopsis_models' and 'Oryza_sativa_models'.
 It should be noted ```<tf>``` that one is chosen from the tf names of selected species.
