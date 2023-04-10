@@ -309,25 +309,25 @@ def calculate(sample_path,species,tf):
 
         predict_probabilty=model.predict(onehot_data)[0][0]
         preds = []
-        for idx in range(len(data)):
-            for i in range(0,len(data[idx])-10+1, 1):
-                # temp = seq2onehot[]
-                temp = np.vstack((onehot_data[0][:i,:],onehot_data[0][i+10:,:]))
-                seq = np.pad(temp,((0,10),(0,0)),'constant',constant_values=(0,0))[np.newaxis,:,:]
-                predict = model.predict(seq)[0]
-                preds.append(predict[0])
-            # predict_probabilty=str(predict_probabilty[0][0])
-            diff_deletion = [i - predict_probabilty for i in preds]
+        for i in range(0,len(data[idx])-10+1, 1):
+            # temp = seq2onehot[]
+            temp = np.vstack((onehot_data[idx][:i,:],onehot_data[idx][i+10:,:]))
+            seq = np.pad(temp,((0,10),(0,0)),'constant',constant_values=(0,0))[np.newaxis,:,:]
+            predict = model.predict(seq)[0]
+            preds.append(predict[0])
+        # predict_probabilty=str(predict_probabilty[0][0])
+        diff_deletion = [i - predict_probabilty for i in preds]
 
 
-            #calculate mutation
-            population_1bp_all_sequences = population_mutator(data, 500)
-            # for i in range(0,len(population_1bp_all_sequences), len(population_1bp_all_sequences)):
-            population_1bp_all_feature = old_seq2feature(population_1bp_all_sequences)
-            population_1bp_fitness = model.predict(population_1bp_all_feature)
-            diff_mutation_o = population_1bp_fitness - predict_probabilty
-            diff_mutation = np.reshape(diff_mutation_o,[500,4]).T
-            plot_weights([scores_for_idx, diff_deletion, diff_mutation], tf=tf,idx=idx,subticks_frequency=20,figsize=(50,4))
+        #calculate mutation
+        population_1bp_all_sequences = population_mutator([data[idx]], 500)
+        # for i in range(0,len(population_1bp_all_sequences), len(population_1bp_all_sequences)):
+        population_1bp_all_feature = old_seq2feature(population_1bp_all_sequences)
+        population_1bp_fitness = model.predict(population_1bp_all_feature)
+        diff_mutation_o = population_1bp_fitness - predict_probabilty
+        diff_mutation = np.reshape(diff_mutation_o,[500,4]).T
+
+        plot_weights([scores_for_idx, diff_deletion, diff_mutation], tf=tf,idx=idx,subticks_frequency=20,figsize=(50,12))
 
 
 def main():
