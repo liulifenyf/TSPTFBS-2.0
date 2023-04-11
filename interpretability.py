@@ -169,6 +169,36 @@ def plot_weights(array,tf,idx,
     plt.savefig('./%s_deeplift/%s.svg'%(tf,idx), format='svg')
     plt.show()
 
+def one_hot_encode_along_channel_axis(sequence):
+    to_return = np.zeros((len(sequence),4), dtype=np.int8)
+    seq_to_one_hot_fill_in_array(zeros_array=to_return,
+                                sequence=sequence, one_hot_axis=1)
+    return to_return
+
+def seq_to_one_hot_fill_in_array(zeros_array, sequence, one_hot_axis):
+    assert one_hot_axis==0 or one_hot_axis==1
+    if (one_hot_axis==0):
+        assert zeros_array.shape[1] == len(sequence)
+    elif (one_hot_axis==1): 
+        assert zeros_array.shape[0] == len(sequence)
+    #will mutate zeros_array
+    for (i,char) in enumerate(sequence):
+        if (char=="A" or char=="a"):
+            char_idx = 0
+        elif (char=="C" or char=="c"):
+            char_idx = 1
+        elif (char=="G" or char=="g"):
+            char_idx = 2
+        elif (char=="T" or char=="t"):
+            char_idx = 3
+        elif (char=="N" or char=="n"):
+            continue #leave that pos as all 0's
+        else:
+            raise RuntimeError("Unsupported character: "+str(char))
+        if (one_hot_axis==0):
+            zeros_array[char_idx,i] = 1
+        elif (one_hot_axis==1):
+            zeros_array[i,char_idx] = 1
 
 def population_mutator(population_current , sequence_length) :
 #     population_current = population_remove_flank(population_current)
@@ -229,36 +259,6 @@ def calculate(sample_path,species,tf):
             if not line[0] == '>':
                 data.append(line.strip()) 
 
-    def one_hot_encode_along_channel_axis(sequence):
-        to_return = np.zeros((len(sequence),4), dtype=np.int8)
-        seq_to_one_hot_fill_in_array(zeros_array=to_return,
-                                    sequence=sequence, one_hot_axis=1)
-        return to_return
-
-    def seq_to_one_hot_fill_in_array(zeros_array, sequence, one_hot_axis):
-        assert one_hot_axis==0 or one_hot_axis==1
-        if (one_hot_axis==0):
-            assert zeros_array.shape[1] == len(sequence)
-        elif (one_hot_axis==1): 
-            assert zeros_array.shape[0] == len(sequence)
-        #will mutate zeros_array
-        for (i,char) in enumerate(sequence):
-            if (char=="A" or char=="a"):
-                char_idx = 0
-            elif (char=="C" or char=="c"):
-                char_idx = 1
-            elif (char=="G" or char=="g"):
-                char_idx = 2
-            elif (char=="T" or char=="t"):
-                char_idx = 3
-            elif (char=="N" or char=="n"):
-                continue #leave that pos as all 0's
-            else:
-                raise RuntimeError("Unsupported character: "+str(char))
-            if (one_hot_axis==0):
-                zeros_array[char_idx,i] = 1
-            elif (one_hot_axis==1):
-                zeros_array[i,char_idx] = 1
 
     selected_path= './DenseNet_models/'+species+'/'+tf+'_checkmodel.hdf5'
     deeplift_model =\
