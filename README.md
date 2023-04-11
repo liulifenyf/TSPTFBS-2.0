@@ -56,7 +56,7 @@ It should be noted ```<tf>``` that one is chosen from the tf names of selected s
 After running the program, a dir about deeplift results will be generated in the current folder.
 We here provide a test.fa file and employed one of models of Zea mays for an example: 
 ```
-python deeplift_test.py Example/test.fa Zea_mays_models ALF2 
+python interpretability Example/test.fa Zea_mays_models ALF2 
 ```
 ### TF-MoDISco
 ```
